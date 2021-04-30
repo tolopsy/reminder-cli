@@ -46,7 +46,7 @@ func (s Switch) Help() {
 	for name := range s.commands {
 		help += name + "\t --help\n"
 	}
-	fmt.Printf("Usage of: %s:\n <command> [<args>]\n%s", os.Args[0], help)
+	fmt.Printf("Usage of %s:\n <command> [<args>]\n%s", os.Args[0], help)
 }
 func (s Switch) create() func(string) error {
 	return func(s string) error {
