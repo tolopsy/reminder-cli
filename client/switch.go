@@ -41,6 +41,13 @@ func (s Switch) Switch() error {
 	return cmd()(cmdName)
 }
 
+func (s Switch) Help() {
+	var help string
+	for name := range s.commands {
+		help += name + "\t --help\n"
+	}
+	fmt.Printf("Usage of: %s:\n <command> [<args>]\n%s", os.Args[0], help)
+}
 func (s Switch) create() func(string) error {
 	return func(s string) error {
 		fmt.Println("Create Reminder")
