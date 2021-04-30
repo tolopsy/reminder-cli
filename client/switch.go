@@ -1,9 +1,9 @@
 package client
 
 import (
-	"fmt"	"os"
+	"fmt"
+	"os"
 )
-
 
 type BackendHTTPClient interface {
 }
@@ -38,8 +38,7 @@ func (s Switch) Switch() error {
 		return fmt.Errorf("Invalid command '%s'", cmdName)
 	}
 
-	return cmd()
-
+	return cmd()(cmdName)
 }
 
 func (s Switch) create() func(string) error {
